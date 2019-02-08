@@ -1,15 +1,12 @@
 ﻿using HtmlAgilityPack;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace core
 {
-    public class MainEngine
+    public class MainEngine: IDisposable
     {
         string _url;
         string _node;
@@ -20,11 +17,12 @@ namespace core
         public string LastError { get { return _lastError; } }
         public string DecodedText { get { return _decodedText; } }
 
-
         public MainEngine(string url, string node)
         {
             _url = url;
             _node = node;
+            _lastError = null;
+            _decodedText = null;
         }
 
         public string Read()
@@ -65,6 +63,15 @@ namespace core
             _cookie = new CookieContainer();
             request.CookieContainer = _cookie;
             return request;
+        }
+
+        public void Dispose()
+        {
+            _url = null;
+            _node = null;
+            _decodedText = null;
+            _cookie = null;
+            _lastError = null;
         }
     }
 }
