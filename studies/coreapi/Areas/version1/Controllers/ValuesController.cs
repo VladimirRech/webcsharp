@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace coreapi.Areas.version1.Controllers
 {
@@ -15,7 +16,15 @@ namespace coreapi.Areas.version1.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return id.ToString();
+            //return id.ToString();
+            var lst = new 
+            {
+                Id = id,
+                Name = "Item 1",
+                Date = DateTime.Now
+            };
+
+            return Content(JsonConvert.SerializeObject(lst));
         }
     }
 }
