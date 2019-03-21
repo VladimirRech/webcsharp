@@ -17,7 +17,7 @@ namespace coreapi
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Configuration = configuration;            
         }
 
         public IConfiguration Configuration { get; }
@@ -26,6 +26,7 @@ namespace coreapi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.Configure<IISOptions>(options => options.ForwardClientCertificate = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
