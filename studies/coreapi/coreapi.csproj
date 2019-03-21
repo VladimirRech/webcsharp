@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\version2\ValuesController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\version1\Data\" />
+    <Folder Include="Areas\version1\Models\" />
+    <Folder Include="Areas\version1\Views\" />
+    <Folder Include="Areas\version2\Data\" />
+    <Folder Include="Areas\version2\Models\" />
+    <Folder Include="Areas\version2\Views\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ForLogic.Persistence">
+      <HintPath>..\..\References\ForLogic.Persistence.dll</HintPath>
+    </Reference>
+    <Reference Include="Tesseract">
+      <HintPath>..\..\References\Tesseract.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
