@@ -6,3 +6,25 @@
 3. [Referência Microsoft + treinamento](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
 4. [Create microservices with .NET and ASP.NET Core](https://docs.microsoft.com/en-us/learn/paths/create-microservices-with-dotnet/)
 5. [Implement a microservice domain model with .NET](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/net-core-microservice-domain-model)
+
+# Comandos de manutenção - Manjaro/Arch
+
+#### Lista sdk instalado
+````shell
+$ dotnet --list-sdks
+````
+
+#### Lista runtime instalado
+````shell
+$ dotnet --list-runtimes
+````
+
+#### Instalar sdk
+````shell
+$ pamac install dotnet-sdk   
+````
+
+#### Instalar runtimes
+````shell
+$ pamac install dotnet-runtime
+````
