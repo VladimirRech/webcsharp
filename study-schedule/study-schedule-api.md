@@ -8,6 +8,7 @@
 5. [Implement a microservice domain model with .NET](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/net-core-microservice-domain-model)
 1. [Install Docker](https://docs.docker.com/desktop/install/linux-install/)
 1. [Install Docker on Arch based Linux](https://docs.docker.com/desktop/install/archlinux/)
+1. [Install SQL Server Manjaro](https://forum.manjaro.org/t/how-do-i-install-microsoft-sql-server/84888/3)
 
 # Comandos de manutenção - Manjaro/Arch
 
@@ -50,3 +51,25 @@ docker-desktop                           4.11.1-84025                           
 ````
 
 > **Nota**: o aplicativo **Docker Desktop** é *experimental* para o Arch Linux, o que significa que está sujeito a instabilidades e funcionalidades não suportadas.
+
+# Passos para instalar Microsoft SQL Server
+Guia de [referência](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup?view=sql-server-ver16) para Arch/Majaro.
+
+Resumidamente, basta rodar o comando à seguir e ir respondendo às questões do assistente:
+````shell
+$ pamac install mssql-server mssql-tools
+$ pamac build mssql-server mssql-tools
+````
+
+Pasta de referência onde arquivos estão instalados: /opt
+
+Porém, os passos acima não foram suficientes para a instalação bem sucedida, sendo assim, usei outros:
+
+* Gerenciador gráfico de pacotes
+  1. Instalar `mssql-server`
+  2. Instalar `mssql-tools`
+  3. No prompt, inicializar a configuração rodando `sudo /opt/mssql/bin/mssql-conf setup`
+    * Escolher edição: escolhida Express
+    * Escolher idioma: inglẽs
+    * Senha do administrador: *********
+4. Com isto, o console informou que o SQL Server foi iniciado.
