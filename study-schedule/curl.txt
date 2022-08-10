@@ -1,0 +1,6 @@
+# https://www.golinuxcloud.com/perform-a-post-request-using-curl/
+# get
+curl http://localhost:5104/studytask/items -v
+
+# post
+curl -X POST -H "Content-Type: application/json" -d '{ "Title": "Testing", "Notes": "Inserting a value into database.", "DueDate": "2022-08-13" }' http://localhost:5104/studytask/insert
