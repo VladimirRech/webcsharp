@@ -30,7 +30,7 @@ namespace study_schedule_api.Controllers
         [ProducesResponseType(typeof(StudyClassResponse), (int)HttpStatusCode.OK)]
         public StudyClassResponse InsertTask([FromBody] StudyTask study)
         {
-            var ret = new StudyClassResponse { Message = "Not Implemented " };
+            var ret = new StudyClassResponse { Message = "/studytask/insert: not implemented" };
             return ret;
         }
 
@@ -39,7 +39,15 @@ namespace study_schedule_api.Controllers
         [ProducesResponseType(typeof(StudyClassResponse), (int)HttpStatusCode.OK)]
         public StudyClassResponse RemoveTask(int id)
         {
-            return new StudyClassResponse() { Message = "Not implemented" };
+            return new StudyClassResponse() { Message = "/studytask/remove: not implemented" };
+        }
+
+        [HttpPost]
+        [Route("update")]
+        [ProducesResponseType(typeof(StudyClassResponse), (int)HttpStatusCode.OK)]
+        public StudyClassResponse UpdateTask([FromBody] StudyTask study)
+        {
+            return new StudyClassResponse() { Message = "/studytask/update: not implemented" };
         }
     }
 }
