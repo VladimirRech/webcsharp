@@ -13,6 +13,7 @@
 1. [Instructions to install Docker-desktop on Arch based Linux](https://docs.docker.com/desktop/install/archlinux/)
 1. [Config Docker daemon](https://docs.docker.com/config/daemon/)
 1. [How to install .NET core SDK with ASP.NET on Manjaro Linux](https://dev.to/alexandrunastase/how-to-install-net-core-sdk-with-asp-net-on-manjaro-linux-1m34)
+1. [Post in ASP.NET Core REST API](https://www.pragimtech.com/blog/blazor/post-in-aspnet-core-rest-api/)
 
 # Comandos de manutenção - Manjaro/Arch
 
