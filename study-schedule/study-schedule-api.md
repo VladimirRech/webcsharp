@@ -9,6 +9,8 @@
 1. [Install Docker](https://docs.docker.com/desktop/install/linux-install/)
 1. [Install Docker on Arch based Linux](https://docs.docker.com/desktop/install/archlinux/)
 1. [Install SQL Server Manjaro](https://forum.manjaro.org/t/how-do-i-install-microsoft-sql-server/84888/3)
+1. [Instructions to install Docker-desktop on Arch based Linux](https://docs.docker.com/desktop/install/archlinux/)
+1. [Config Docker daemon](https://docs.docker.com/config/daemon/)
 
 # Comandos de manutenção - Manjaro/Arch
 
@@ -49,6 +51,11 @@ $ pamac list | grep -i "docker"
 docker                                   1:20.10.17-1                  community  168,1 MB
 docker-desktop                           4.11.1-84025                             1,2 GB
 ````
+
+Antes de rodar qualquer build é necessário inicializar o daemon do Docker no Linux, caso deseje rodar manualmente:
+```shell
+$ sudo dockerd &
+```
 
 > **Nota**: o aplicativo **Docker Desktop** é *experimental* para o Arch Linux, o que significa que está sujeito a instabilidades e funcionalidades não suportadas.
 
