@@ -28,10 +28,18 @@ namespace study_schedule_api.Controllers
         [HttpPost]
         [Route("insert")]
         [ProducesResponseType(typeof(StudyClassResponse), (int)HttpStatusCode.OK)]
-        public StudyClassResponse InsertTask([FromBody]StudyTask study)
+        public StudyClassResponse InsertTask([FromBody] StudyTask study)
         {
-            var ret = new StudyClassResponse{ Message = "Not Implemented "};
+            var ret = new StudyClassResponse { Message = "Not Implemented " };
             return ret;
+        }
+
+        [HttpGet]
+        [Route("remove")]
+        [ProducesResponseType(typeof(StudyClassResponse), (int)HttpStatusCode.OK)]
+        public StudyClassResponse RemoveTask(int id)
+        {
+            return new StudyClassResponse() { Message = "Not implemented" };
         }
     }
 }
