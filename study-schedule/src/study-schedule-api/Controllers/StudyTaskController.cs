@@ -24,5 +24,14 @@ namespace study_schedule_api.Controllers
             // Needs implementation
             return new List<StudyTask>().ToArray();
         }
+
+        [HttpPost]
+        [Route("insert")]
+        [ProducesResponseType(typeof(StudyClassResponse), (int)HttpStatusCode.OK)]
+        public StudyClassResponse InsertTask([FromBody]StudyTask study)
+        {
+            var ret = new StudyClassResponse{ Message = "Not Implemented "};
+            return ret;
+        }
     }
 }
