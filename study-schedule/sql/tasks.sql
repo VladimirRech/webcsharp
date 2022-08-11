@@ -26,4 +26,6 @@ values            (getdate(), getdate(), 'Ler tutorial da Microsoft e definir ta
                   (getdate(), getdate(), 'Encontrar tutorial para API microserviço com dotnet core', 'O tutorial deve contemplar o uso de banco de dados.', '2022-08-11 12:00:00'),
                   (getdate(), getdate(), 'Implementar api de tasks e draft de métodos','Criar API para inserção de tarefas. Implementar os endpoints apenas definindo a assintatura e um retorno padrão', '2022-08-12 12:00:00'),
                   (getdate(), getdate(), 'Implementar classe tasks', '', NULL),
-                  (getdate(), getdate(), 'Criar tabelas no banco de dados', '', NULL)
+                  (getdate(), getdate(), 'Criar tabelas no banco de dados', '', NULL),
+                  (getdate(), getdate(), 'Criar configurações de conexão com o banco com Entity', '', NULL);
+go
