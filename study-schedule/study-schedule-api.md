@@ -100,3 +100,15 @@ $ sudo pamac install aspnet-runtime
 ```
 Não é necessário reiniciar.
 
+----
+
+# Instalando Entity Framework
+Para instalar é necessário rodar os seguintes comandos:
+```shell
+$ dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+$ dotnet add package Microsoft.EntityFrameworkCore
+$ dotnet add package Microsoft.EntityFrameworkCore.Tools
+```
+
+Link de [tutorial](https://www.c-sharpcorner.com/article/building-asp-net-web-api-in-net-core-with-entity-framework/).
+
