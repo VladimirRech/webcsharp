@@ -112,3 +112,12 @@ $ dotnet add package Microsoft.EntityFrameworkCore.Tools
 
 Link de [tutorial](https://www.c-sharpcorner.com/article/building-asp-net-web-api-in-net-core-with-entity-framework/).
 
+* Para funcionar tem de colocar referência à `Microsoft.Extensions.Configurations`.
+* Adicionar um construtor que receba a string de conexão no DbContext.
+
+Links para ajudar a resolver problemas com o Entity no DotNet Core:
+
+1. [Projeto no Git com várias partes prontsas](https://github.com/kerminator-dev/Country-Info/blob/main/src/CountryInfo/CountryInfoAPI/Controllers/BaseController.cs)
+2. [Configurando connection string](https://www.c-sharpcorner.com/blogs/setting-connection-strings-in-net-core-web-api-with-multiple-tenant-sql-db2)
+3. [Store and read connection string](https://www.connectionstrings.com/store-and-read-connection-string-in-appsettings-json/)
+4. [Tutorial asp.net core](https://www.connectionstrings.com/store-and-read-connection-string-in-appsettings-json/)
