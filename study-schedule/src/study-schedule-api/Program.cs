@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using EFModeling.EntityProperties.FluentAPI.Required;
+using study_schedule_api.DbContexts;
 // using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
