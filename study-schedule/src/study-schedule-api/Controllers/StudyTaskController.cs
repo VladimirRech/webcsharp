@@ -1,17 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
 using study_schedule_api.Classes;
 using System.Net;
+using Microsoft.EntityFrameworkCore;
+using study_schedule_api.DbContexts;
 
 namespace study_schedule_api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
 
-    public class StudyTaskController
+    public class StudyTaskController : BaseController
     {
         private readonly ILogger<StudyTaskController> _logger;
 
-        public StudyTaskController(ILogger<StudyTaskController> logger)
+        public StudyTaskController(ILogger<StudyTaskController> logger, MyContext dbContext) : base(dbContext)
         {
             _logger = logger;
         }
