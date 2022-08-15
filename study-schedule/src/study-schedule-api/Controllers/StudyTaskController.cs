@@ -3,6 +3,7 @@ using study_schedule_api.Classes;
 using System.Net;
 using Microsoft.EntityFrameworkCore;
 using study_schedule_api.DbContexts;
+using System.Linq;
 
 namespace study_schedule_api.Controllers
 {
@@ -20,11 +21,21 @@ namespace study_schedule_api.Controllers
 
         [HttpGet]
         [Route("items")]
-        [ProducesResponseType(typeof(IEnumerable<StudyTask>), (int)HttpStatusCode.OK)]
-        public IEnumerable<StudyTask> GetTasks()
+        [ProducesResponseType(typeof(IEnumerable<StudyClassResponse>), (int)HttpStatusCode.OK)]
+        public IEnumerable<StudyClassResponse> GetTasks()
         {
-            // Needs implementation
-            return new List<StudyTask>().ToArray();
+            var tasks = _dbContext.StudyTask.ToList<StudyTask>();
+            
+            var ret = new List<StudyClassResponse>();
+            tasks.ForEach(item => 
+            {
+                ret.Add(new StudyClassResponse{
+                    StudyClass = item,
+                    Message = ""
+                });
+            });
+            
+            return ret.ToArray();
         }
 
         [HttpPost]
