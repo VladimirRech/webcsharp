@@ -122,3 +122,9 @@ Links para ajudar a resolver problemas com o Entity no DotNet Core:
 3. [Store and read connection string](https://www.connectionstrings.com/store-and-read-connection-string-in-appsettings-json/)
 4. [Tutorial asp.net core](https://www.connectionstrings.com/store-and-read-connection-string-in-appsettings-json/)
 5. [Resolvendo problemas com a exception System.PlatformNotSupportedException: Strings.PlatformNotSupported_DataSqlClient on Linux after migrating to .NET 6](https://docs.microsoft.com/en-us/answers/questions/655201/systemplatformnotsupportedexception-stringsplatfor.html)
+
+#### Outros comandos úteis:
+Rodando api para que tenha compatibilidade com o Linux Manjaro:
+```shell
+$  dotnet run --arch x64 --os linux
+``` 
