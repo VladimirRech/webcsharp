@@ -25,26 +25,47 @@ namespace study_schedule_api.Controllers
         public IEnumerable<StudyClassResponse> GetTasks()
         {
             var tasks = _dbContext.StudyTask.ToList<StudyTask>();
-            
+
             var ret = new List<StudyClassResponse>();
-            tasks.ForEach(item => 
+            tasks.ForEach(item =>
             {
-                ret.Add(new StudyClassResponse{
+                ret.Add(new StudyClassResponse
+                {
                     StudyClass = item,
                     Message = ""
                 });
             });
-            
+
             return ret.ToArray();
         }
 
         [HttpPost]
         [Route("insert")]
-        [ProducesResponseType(typeof(StudyClassResponse), (int)HttpStatusCode.OK)]
-        public StudyClassResponse InsertTask([FromBody] StudyTask study)
+        // [ProducesResponseType(typeof(StudyClassResponse), (int)HttpStatusCode.OK)]
+        // [ProducesResponseType(typeof(StudyClassResponse), (int)HttpStatusCode.BadRequest)]
+        public IActionResult InsertTask([FromBody] StudyTask study)
         {
             var ret = new StudyClassResponse { Message = "/studytask/insert: not implemented" };
-            return ret;
+
+            if (ret == null)
+            {
+                return BadRequest(ret);
+            }
+
+            try
+            {
+                study.CreationDate = DateTime.Now;
+                study.UpdateDate = DateTime.Now;
+                _dbContext.StudyTask.Add(study);
+                _dbContext.SaveChanges();
+                ret.StudyClass = _dbContext.StudyTask.FirstOrDefault<StudyTask>();
+                ret.Message = "/studytask/insert: register created succesfully.";
+            }
+            catch (Exception ex)
+            {
+                ret.Message = string.Format("/studytask/insert: internal error {0}.", ex.Message);
+            }
+            return Ok(ret);
         }
 
         [HttpGet]
