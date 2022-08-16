@@ -15,6 +15,9 @@
 1. [How to install .NET core SDK with ASP.NET on Manjaro Linux](https://dev.to/alexandrunastase/how-to-install-net-core-sdk-with-asp-net-on-manjaro-linux-1m34)
 1. [Post in ASP.NET Core REST API](https://www.pragimtech.com/blog/blazor/post-in-aspnet-core-rest-api/)
 1. [Install Entity Framework](https://docs.microsoft.com/en-us/ef/core/get-started/overview/install)
+1. [Controller action return types in ASP.NET Core web API](https://docs.microsoft.com/en-us/aspnet/core/web-api/action-return-types?view=aspnetcore-6.0)
+1. [Updating Related Data with the Entity Framework in an ASP.NET MVC Application (6 of 10)](https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application)
+1. [ASP.NET Core - Return 500 (Internal Server Error) or any other Status Code from API](https://www.abhith.net/blog/aspnet-core-return-500-internal-server-error-or-any-other-status-code-from-api/)
 
 # Comandos de manutenção - Manjaro/Arch
 
