@@ -3,7 +3,6 @@ using study_schedule_api.Classes;
 using System.Net;
 using Microsoft.EntityFrameworkCore;
 using study_schedule_api.DbContexts;
-using System.Linq;
 
 namespace study_schedule_api.Controllers
 {
@@ -41,8 +40,6 @@ namespace study_schedule_api.Controllers
 
         [HttpPost]
         [Route("insert")]
-        // [ProducesResponseType(typeof(StudyClassResponse), (int)HttpStatusCode.OK)]
-        // [ProducesResponseType(typeof(StudyClassResponse), (int)HttpStatusCode.BadRequest)]
         public IActionResult InsertTask([FromBody] StudyTask study)
         {
             var ret = new StudyClassResponse { Message = "/studytask/insert: not implemented" };
@@ -78,10 +75,47 @@ namespace study_schedule_api.Controllers
 
         [HttpPost]
         [Route("update")]
-        [ProducesResponseType(typeof(StudyClassResponse), (int)HttpStatusCode.OK)]
-        public StudyClassResponse UpdateTask([FromBody] StudyTask study)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult UpdateTask([FromBody] StudyTask study)
         {
-            return new StudyClassResponse() { Message = "/studytask/update: not implemented" };
+            if (study == null)
+            {
+                return BadRequest();
+            }
+
+            StudyTask obj = _dbContext.StudyTask.Where(item => item.Id == study.Id).FirstOrDefault();
+
+            if (obj == null)
+            {
+                return NotFound();
+            }            
+
+            try
+            {
+               obj.Title = study.Title;
+               obj.Notes = study.Notes;
+               obj.DueDate = study.DueDate;
+               obj.UpdateDate = DateTime.Now;
+
+                if (ModelState.IsValid)
+                {
+                    _dbContext.Entry<StudyTask>(obj).State = EntityState.Modified;
+                    _dbContext.SaveChanges();                    
+                }
+                else 
+                {
+                    return StatusCode(StatusCodes.Status417ExpectationFailed, "Dados inválidos.");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+
+            return Ok();
         }
     }
 }
