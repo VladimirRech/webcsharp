@@ -123,6 +123,9 @@ Links para ajudar a resolver problemas com o Entity no DotNet Core:
 4. [Tutorial asp.net core](https://www.connectionstrings.com/store-and-read-connection-string-in-appsettings-json/)
 5. [Resolvendo problemas com a exception System.PlatformNotSupportedException: Strings.PlatformNotSupported_DataSqlClient on Linux after migrating to .NET 6](https://docs.microsoft.com/en-us/answers/questions/655201/systemplatformnotsupportedexception-stringsplatfor.html)
 
+#### Problemas com EF no Linux
+No projeto foi necessário informar na string de conexão o usuário e a senha. A autenticação integrada não funcionou (por conta de estar rodando sob o Linux). A API fechava ao realizar a requisição.
+
 #### Outros comandos úteis:
 Rodando api para que tenha compatibilidade com o Linux Manjaro:
 ```shell
