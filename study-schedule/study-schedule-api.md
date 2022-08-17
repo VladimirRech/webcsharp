@@ -18,6 +18,8 @@
 1. [Controller action return types in ASP.NET Core web API](https://docs.microsoft.com/en-us/aspnet/core/web-api/action-return-types?view=aspnetcore-6.0)
 1. [Updating Related Data with the Entity Framework in an ASP.NET MVC Application (6 of 10)](https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application)
 1. [ASP.NET Core - Return 500 (Internal Server Error) or any other Status Code from API](https://www.abhith.net/blog/aspnet-core-return-500-internal-server-error-or-any-other-status-code-from-api/)
+1. [Passing Input Parameters to .NET Core Web API Actions](https://thecodeblogger.com/2021/06/01/passing-input-parameters-to-net-core-web-api-actions/)
+1. [Working with entity states](https://docs.microsoft.com/en-us/ef/ef6/saving/change-tracking/entity-state)
 
 # Comandos de manutenção - Manjaro/Arch
 
@@ -134,3 +136,16 @@ Rodando api para que tenha compatibilidade com o Linux Manjaro:
 ```shell
 $  dotnet run --arch x64 --os linux
 ``` 
+
+Estes comandos podem ser inseridos como argumentos de inicialização do modo DEBUG no arquivo `launch.json`, abaixo um exemplo:
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+          ...
+            "program": "${workspaceFolder}/src/study-schedule-api/bin/Debug/net6.0/study-schedule-api.dll",
+            "args": ["--arch", "x64", "--os", "linux"],
+            ...
+```
