@@ -21,3 +21,11 @@ curl -X POST -H "Content-Type: application/json" -d '{ "Id": 0, "Title": "Testin
 curl -X POST -H "Content-Type: application/json" -d '{ "Id": 1, "Title": "Alterando um registro", "Notes": "Alterar o conteúdo", "DueDate": null }' http://localhost:5104/studytask/update -v
 # 400 BadRequest
 curl -X POST -H "Content-Type: application/json" -d '{ "Id": 1, "Title2": "Alterando um registro", "Notes": "Alterar o conteúdo", "DueDate": null }' http://localhost:5104/studytask/update -v
+
+# obter pelo id
+## BadRequest
+curl 'http://localhost:5104/studytask/by_id?id=0' -v
+## NotFound 404
+curl 'http://localhost:5104/studytask/by_id?id=99' -v
+## Ok
+curl 'http://localhost:5104/studytask/by_id?id=1' -v
