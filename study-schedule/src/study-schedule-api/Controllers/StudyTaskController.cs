@@ -65,12 +65,45 @@ namespace study_schedule_api.Controllers
             return Ok(ret);
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         [Route("remove")]
         [ProducesResponseType(typeof(StudyClassResponse), (int)HttpStatusCode.OK)]
-        public StudyClassResponse RemoveTask(int id)
+        public IActionResult RemoveTask(int id)
         {
-            return new StudyClassResponse() { Message = "/studytask/remove: not implemented" };
+            if (id < 1)
+            {
+                return BadRequest();
+            }
+
+            StudyTask obj = _dbContext.StudyTask.Where(item => item.Id == id 
+                && !item.Removed).FirstOrDefault();
+
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            try 
+            {
+                obj.Removed = true;
+                obj.UpdateDate = DateTime.Now;
+
+                if (ModelState.IsValid)
+                {
+                    _dbContext.Entry<StudyTask>(obj).State = EntityState.Modified;
+                    _dbContext.SaveChanges();                    
+                }
+                else 
+                {
+                    return StatusCode(StatusCodes.Status417ExpectationFailed, "Dados inválidos.");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+
+            return Ok();
         }
 
         [HttpPost]
