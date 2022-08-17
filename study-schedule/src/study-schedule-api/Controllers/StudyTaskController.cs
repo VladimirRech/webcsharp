@@ -75,7 +75,7 @@ namespace study_schedule_api.Controllers
                 return BadRequest();
             }
 
-            StudyTask obj = _dbContext.StudyTask.Where(item => item.Id == id 
+            StudyTask obj = _dbContext.StudyTask.Where(item => item.Id == id
                 && !item.Removed).FirstOrDefault();
 
             if (obj == null)
@@ -83,7 +83,7 @@ namespace study_schedule_api.Controllers
                 return NotFound();
             }
 
-            try 
+            try
             {
                 obj.Removed = true;
                 obj.UpdateDate = DateTime.Now;
@@ -91,9 +91,9 @@ namespace study_schedule_api.Controllers
                 if (ModelState.IsValid)
                 {
                     _dbContext.Entry<StudyTask>(obj).State = EntityState.Modified;
-                    _dbContext.SaveChanges();                    
+                    _dbContext.SaveChanges();
                 }
-                else 
+                else
                 {
                     return StatusCode(StatusCodes.Status417ExpectationFailed, "Dados inválidos.");
                 }
@@ -124,21 +124,21 @@ namespace study_schedule_api.Controllers
             if (obj == null)
             {
                 return NotFound();
-            }            
+            }
 
             try
             {
-               obj.Title = study.Title;
-               obj.Notes = study.Notes;
-               obj.DueDate = study.DueDate;
-               obj.UpdateDate = DateTime.Now;
+                obj.Title = study.Title;
+                obj.Notes = study.Notes;
+                obj.DueDate = study.DueDate;
+                obj.UpdateDate = DateTime.Now;
 
                 if (ModelState.IsValid)
                 {
                     _dbContext.Entry<StudyTask>(obj).State = EntityState.Modified;
-                    _dbContext.SaveChanges();                    
+                    _dbContext.SaveChanges();
                 }
-                else 
+                else
                 {
                     return StatusCode(StatusCodes.Status417ExpectationFailed, "Dados inválidos.");
                 }
@@ -150,5 +150,26 @@ namespace study_schedule_api.Controllers
 
             return Ok();
         }
+
+        [HttpGet("{id}")]
+        [Route("by_id")]
+        [ProducesResponseType(typeof(StudyClassResponse), (int)HttpStatusCode.OK)]
+        public IActionResult GetTaskById([FromQuery] int id)
+        {
+            if (id < 1)
+            {
+                return BadRequest();
+            }
+
+            StudyTask obj = _dbContext.StudyTask.Where(item => item.Id == id && !item.Removed).FirstOrDefault();
+
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(obj);
+        }
+
     }
 }
